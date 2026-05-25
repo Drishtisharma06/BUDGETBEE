@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Add Expense | Smart Expense Tracker{% endblock %}
+{% block content %}
+<section class="form-page">
+  <div class="panel form-panel">
+    <div class="panel-header"><h2>Add New Expense</h2></div>
+    <form method="POST" class="input-form">
+      <label>Amount</label>
+      <input type="number" step="0.01" name="amount" placeholder="Enter amount" required />
+      <label>Category</label>
+      <select name="category" required>
+        <option value="">Select category</option>
+        {% for category in categories %}
+        <option value="{{ category }}">{{ category }}</option>
+        {% endfor %}
+      </select>
+      <label>Date</label>
+      <input type="date" name="date" value="{{ today }}" required />
+      <label>Payment Method</label>
+      <select name="payment_method" required>
+        <option value="">Select method</option>
+        {% for method in payment_methods %}
+        <option value="{{ method }}">{{ method }}</option>
+        {% endfor %}
+      </select>
+      <label>Notes</label>
+      <textarea name="notes" placeholder="Add optional notes"></textarea>
+      <div class="form-actions">
+        <button type="submit" class="button primary">Add Expense</button>
+        <a href="{{ url_for('dashboard') }}" class="button secondary">Cancel</a>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Budget | Smart Expense Tracker{% endblock %}
+{% block content %}
+<section class="panel budget-panel">
+  <div class="panel-header"><h2>Budget Management</h2></div>
+  <div class="grid-2">
+    <div class="card summary-card">
+      <span>Current Limit</span>
+      <h3>${{ '%.2f'|format(budget.limit_amount if budget else 0) }}</h3>
+    </div>
+    <div class="card summary-card">
+      <span>Remaining</span>
+      <h3>${{ '%.2f'|format(remaining) }}</h3>
+    </div>
+  </div>
+  <div class="progress-card">
+    <span>Budget Usage</span>
+    <div class="progress-bar"><div style="width: {{ usage }}%"></div></div>
+    <strong>{{ usage }}% used</strong>
+  </div>
+  <div class="panel form-panel">
+    <form method="POST" class="input-form">
+      <label>Monthly Budget Limit</label>
+      <input type="number" step="0.01" name="limit_amount" placeholder="Enter monthly limit" required />
+      <label>Savings Goal</label>
+      <input type="number" step="0.01" name="savings_target" placeholder="Enter savings target" />
+      <div style="display:flex;gap:0.5rem;align-items:center;">
+        <button type="submit" class="button primary">Save Budget</button>
+        <button type="submit" name="snapshot" value="1" class="button secondary">Save Monthly Snapshot</button>
+      </div>
+    </form>
+  </div>
+  <div class="alert alert-info">
+    <strong>Tip:</strong> Keep your monthly limit realistic and review spending categories weekly.
+  </div>
+  <div class="panel">
+    <div class="panel-header"><h3>Budget History</h3></div>
+    <ul class="report-list">
+      {% for b in budget_history %}
+      <li><span>{{ b.month_year }}</span><strong>${{ '%.2f'|format(b.limit_amount) }}</strong></li>
+      {% else %}
+      <li>No budget history found.</li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="panel">
+    <div class="panel-header"><h3>Monthly Snapshots</h3></div>
+    <ul class="report-list">
+      {% for m in monthly_history %}
+      <li><span>{{ m.month_year }}</span><strong>${{ '%.2f'|format(m.total_expenses) }}</strong></li>
+      {% else %}
+      <li>No monthly snapshots yet.</li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endblock %}

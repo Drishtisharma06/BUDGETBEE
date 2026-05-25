@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Reports | Smart Expense Tracker{% endblock %}
+{% block content %}
+<section class="panel reports-panel">
+  <div class="panel-header flex-between">
+    <div>
+      <h2>Reports</h2>
+      <p>Generate summaries and download financial data.</p>
+    </div>
+    <a href="{{ url_for('export_csv') }}" class="button primary">Download CSV</a>
+  </div>
+  <div class="grid-3">
+    <div class="card feature-card">
+      <span>Total Tracked</span>
+      <h3>${{ '%.2f'|format(total_expenses) }}</h3>
+    </div>
+    <div class="card feature-card">
+      <span>Top Category</span>
+      <h3>{{ highest_category }}</h3>
+    </div>
+    <div class="card feature-card">
+      <span>Most Active</span>
+      <h3>{{ category_summary|length }} Categories</h3>
+    </div>
+  </div>
+  <div class="panel table-panel">
+    <h3>Category Breakdown</h3>
+    <ul class="report-list">
+      {% for item in category_summary %}
+      <li><span>{{ item.category }}</span><strong>${{ '%.2f'|format(item.total) }}</strong></li>
+      {% else %}
+      <li>No category summary available.</li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endblock %}

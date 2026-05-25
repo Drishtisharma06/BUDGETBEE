@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block title %}BudgetBee | Home{% endblock %}
+{% block content %}
+<section class="hero-section">
+  <div class="hero-copy">
+    <span class="eyebrow"> Welcome to</span>
+    <h1 class="hero-brand">BudgetBee</h1>
+    <h2 class="hero-sub">Bee Smart With Your Money</h2>
+    <p>BudgetBee helps you plan budgets, track expenses, and visualize spending trends with clean, actionable dashboards. Save, analyze, and optimize your money — all in one place.</p>
+    <div class="hero-actions">
+      <a href="{{ url_for('register') }}" class="button primary">Get Started</a>
+      <a href="{{ url_for('login') }}" class="button secondary">Login</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-logo-frame">
+      <img src="/static/images/logo.svg" alt="BudgetBee Logo" />
+    </div>
+    <div class="hero-card hero-card-wide">
+      <div class="stat-row">
+        <div class="stat-card highlight">
+          <span>Monthly Saved</span>
+          <h2>$5,420</h2>
+        </div>
+        <div class="stat-card">
+          <span>Monthly Expense</span>
+          <h2>$2,150</h2>
+        </div>
+      </div>
+      <div class="stat-card summary-card-large">
+        <span>Budget Used</span>
+        <h2>62%</h2>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section grid-3">
+  <div class="card feature-card">
+    <h3>Budget Planning</h3>
+    <p>Set limits and receive alerts when spending gets close to your goal.</p>
+  </div>
+  <div class="card feature-card">
+    <h3>Expense Analytics</h3>
+    <p>Track how every category contributes to your monthly spend.</p>
+  </div>
+  <div class="card feature-card">
+    <h3>Reports</h3>
+    <p>Download CSV reports and review historical summaries instantly.</p>
+  </div>
+</section>
+<section class="section overview-section">
+  <div class="section-head">
+    <span class="eyebrow">What BudgetBee Does</span>
+    <h2>A modern finance dashboard — clear, simple, and focused on your goals</h2>
+  </div>
+  <div class="grid-2">
+    <div>
+      <ul class="checklist">
+        <li>Organize expenses by category and payment method</li>
+        <li>Set monthly budgets and savings goals for every month</li>
+        <li>Interactive analytics and charts for spending insights</li>
+        <li>Exportable reports and monthly snapshots for history</li>
+      </ul>
+    </div>
+    <div>
+      <ul class="checklist">
+        <li>Compact dashboard with quick actions</li>
+        <li>Secure authentication and profile management</li>
+        <li>Budget snapshots stored per month</li>
+        <li>CSV exports and admin monitoring (advanced)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="section stats-section">
+  <div class="stats-grid">
+    <div class="stat-panel">
+      <span>Total Income</span>
+      <strong>$18,600</strong>
+    </div>
+    <div class="stat-panel">
+      <span>Monthly Savings</span>
+      <strong>$3,120</strong>
+    </div>
+    <div class="stat-panel">
+      <span>Analytics Score</span>
+      <strong>91%</strong>
+    </div>
+  </div>
+</section>
+{% endblock %}

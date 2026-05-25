@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Register | BudgetBee{% endblock %}
+{% block content %}
+<section class="auth-page">
+  <div class="auth-card">
+    <h2>Create Your Account</h2>
+    <p>Register now to start tracking your expenses and managing budgets.</p>
+    <form method="POST" class="input-form">
+      <div>
+        <label>Username</label>
+        <input type="text" name="username" placeholder="Enter your username" required />
+      </div>
+      <div>
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Enter your email" required />
+      </div>
+      <div>
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter password" required />
+      </div>
+      <div>
+        <label>Confirm Password</label>
+        <input type="password" name="confirm_password" placeholder="Confirm password" required />
+      </div>
+      <button type="submit" class="button primary">Register</button>
+      <p class="small-note">Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+    </form>
+  </div>
+</section>
+{% endblock %}

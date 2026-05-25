@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Settings | Smart Expense Tracker{% endblock %}
+{% block content %}
+<section class="panel settings-panel">
+  <div class="panel-header"><h2>Application Settings</h2></div>
+  <form method="POST" class="input-form">
+    <div class="setting-group">
+      <label>Theme</label>
+      <select name="theme">
+        <option value="light">Light Mode</option>
+        <option value="dark">Dark Mode</option>
+      </select>
+    </div>
+    <div class="setting-group">
+      <label>Currency</label>
+      <select name="currency">
+        <option value="usd">USD</option>
+        <option value="eur">EUR</option>
+        <option value="gbp">GBP</option>
+      </select>
+    </div>
+    <div class="setting-group">
+      <label>Notifications</label>
+      <select name="notifications">
+        <option value="enabled">Enabled</option>
+        <option value="disabled">Disabled</option>
+      </select>
+    </div>
+    <button type="submit" class="button primary">Save Settings</button>
+  </form>
+</section>
+{% endblock %}

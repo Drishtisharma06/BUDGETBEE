@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Profile | BudgetBee{% endblock %}
+{% block content %}
+<section class="profile-page">
+  <div class="profile-header-panel panel">
+    <div class="profile-bio">
+      <div class="profile-avatar">{{ (user.username[0] if user and user.username) | upper }}</div>
+      <div>
+        <span class="eyebrow">Your profile</span>
+        <h1>{{ user.username }}</h1>
+        <p class="profile-email">{{ user.email }}</p>
+      </div>
+    </div>
+    <div class="profile-actions">
+      <a href="{{ url_for('settings') }}" class="button secondary">Settings</a>
+      <a href="{{ url_for('logout') }}" class="button primary">Logout</a>
+    </div>
+  </div>
+
+  <div class="profile-top-grid">
+    <div class="panel profile-summary-panel">
+      <div class="panel-header"><h3>Account snapshot</h3></div>
+      <div class="profile-stats-grid">
+        <div class="detail-card">
+          <span>Budgets Created</span>
+          <strong>{{ budgets_count or 0 }}</strong>
+        </div>
+        <div class="detail-card">
+          <span>Total Expenses</span>
+          <strong>$--</strong>
+        </div>
+        <div class="detail-card">
+          <span>Member Since</span>
+          <strong>May 2026</strong>
+        </div>
+      </div>
+      <div class="profile-summary-note">
+        Track your spending habits, adjust your monthly goals, and view quick account metrics all in one panel.
+      </div>
+    </div>
+
+    <div class="panel profile-form-panel">
+      <div class="panel-header"><h3>Account settings</h3></div>
+      <form method="POST" class="input-form">
+        <label>Username</label>
+        <input type="text" name="username" value="{{ user.username }}" required />
+        <label>Email Address</label>
+        <input type="email" value="{{ user.email }}" disabled />
+        <div class="form-row">
+          <div style="flex:1;">
+            <label>New Password</label>
+            <input type="password" name="password" placeholder="Leave blank to keep current password" />
+          </div>
+          <div style="flex:1;">
+            <label>Confirm Password</label>
+            <input type="password" name="confirm_password" placeholder="Re-enter password" />
+          </div>
+        </div>
+        <button type="submit" class="button primary">Save Changes</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="panel profile-info-panel">
+    <div class="panel-header"><h3>Quick info</h3></div>
+    <ul class="info-list">
+      <li><span>Account Status</span><strong>Active</strong></li>
+      <li><span>Connected Devices</span><strong>1</strong></li>
+      <li><span>Last Login</span><strong>Today</strong></li>
+      <li><span>Preferred Currency</span><strong>USD</strong></li>
+    </ul>
+  </div>
+</section>
+{% endblock %}
