@@ -61,25 +61,7 @@ The app uses SQLite and automatically creates the database schema on startup. Th
 - `expenses`
 - `budgets`
 - `monthly_history`
-- 🎯 Use Cases
 
-BudgetBee is ideal for:
-
-Personal finance management
-Student budgeting
-Monthly expense tracking
-Small household finance management
-Flask learning projects
-Portfolio and resume projects
-🤝 Contributing
-
-Contributions are welcome!
-
-Fork the repository
-Create a feature branch
-Commit your changes
-Push to your branch
-Open a Pull Request
 
 ## Configuration
 - Update the secret key in `app.py` before deploying to a production environment:
