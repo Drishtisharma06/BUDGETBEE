@@ -69,7 +69,7 @@ The app uses SQLite and automatically creates the database schema on startup. Th
   app.config['SECRET_KEY'] = 'change_this_to_a_secure_key'
   ```
 - For production use, consider loading the secret key from an environment variable instead of hardcoding it.
-  ## 🎯 Use Cases
+## 🎯 Use Cases
 - Personal expense tracking
 - Monthly budget management
 - Student finance management
